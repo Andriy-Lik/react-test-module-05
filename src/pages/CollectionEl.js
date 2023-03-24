@@ -1,13 +1,17 @@
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Suspense, useRef } from 'react';
+import { Link, Outlet, useParams, useLocation } from "react-router-dom";
 
 const CollectionEl = () => {
+    const location = useLocation();
+    const backLinkLocationRef = useRef(location.state?.from ?? '/cols');
     const { colId } = useParams();
-    // useEffect(() => {
-    //     HTTP запрос, если нужно
-    // }, [])
+    console.log(location);
+    console.log(backLinkLocationRef);
+
     return (
         <>
             <h1>CollectionEl: {colId}</h1>
+            <Link to={backLinkLocationRef.current} >Назад до сторінки колекції</Link>
             <ul>
                 <li>
                     <Link to="subcollection">Підколекції</Link>
@@ -16,7 +20,9 @@ const CollectionEl = () => {
                     <Link to="gallery">Галерея</Link>
                 </li>
             </ul>
-            <Outlet />
+            <Suspense fallback={<div>Loading subPage...</div>} >
+                <Outlet />
+            </Suspense>
         </>
     );
 };
