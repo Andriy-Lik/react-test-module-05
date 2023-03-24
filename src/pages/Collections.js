@@ -3,7 +3,7 @@ import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
 const Collections = () => {
-    const [cols, setCols] = useState(['col-1', 'col-2', 'col-3', 'col-4', 'col-5']);
+    const [cols, ] = useState(['col-1', 'col-2', 'col-3', 'col-4', 'col-5',]);
     const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
     const colId = searchParams.get('colId') ?? '';
