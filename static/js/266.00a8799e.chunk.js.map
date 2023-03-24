@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/266.00a8799e.chunk.js","mappings":"0JAIA,UAJa,WACT,OAAO,wHACV,C","sources":["pages/Home.js"],"sourcesContent":["const Home = () => {\n    return <div>Домашня сторінка</div>;\n};\n\nexport default Home;"],"names":[],"sourceRoot":""}
